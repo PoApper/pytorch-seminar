@@ -1,0 +1,179 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+// font style
+main {
+  font-family: D2Coding, "D2 coding", monosapce;
+}
+
+// tag style
+span.tag {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.75rem;
+  color: white;
+  background-color: #ef6faa;
+  opacity: 0.6;
+  cursor: pointer;
+  line-height: 2;
+  transition: 0.5s;
+}
+
+span.selected {
+  background-color: #b90659 !important;
+}
+
+li.hidden {
+  display: none;
+}
+
+// code style
+code.highlighter-rouge {
+  color: #c7254e !important;
+  background-color: #f9f2f4 !important;
+}
+
+// code block style
+.highlight {
+  background-color: #272822 !important;
+}
+
+code {
+  background-color: #272822 !important;
+}
+
+// code label
+.codeblock-label {
+  display: inline-block;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  padding: .10rem .70rem;
+  background-color: #9999dc;
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+  margin-left: 1px;
+}
+
+// equation box
+div.eq-box {
+  background-color: #fff3e0;
+  padding: .50rem .70rem;
+  margin: .10rem .30rem;
+}
+
+// fitting mathjax equation font-size
+.mjx-char {
+  font-size: 16px;
+}
+
+.mjx-sub {
+  .mjx-char {
+    font-size: 70%;
+  }
+}
+
+.mjx-sup {
+  .mjx-char {
+    font-size: 70%;
+  }
+}
+
+.mjx-under {
+  text-align: center;
+  .mjx-char {
+    font-size: 70%;
+  }
+}
+
+.mjx-over {
+  text-align: center;
+  .mjx-char {
+    font-size: 70%;
+  }
+}
+
+// text-alignment: center
+.center {
+  text-align: center;
+}
+
+/**
+ * Headings
+ */
+ h1, h2, h3, h4, h5, h6 {
+  color: darkred;
+}
+
+// image wrapper
+.img-wrapper {
+  text-align: center;
+  margin: 8px;
+}
+
+// mathematical statement
+.math-statement, .proof {
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(230, 230, 230);
+}
+
+// statement
+.statement, .theorem {
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: #ffece9;
+}
+
+// example & problem
+.example {
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(183, 226, 255);
+}
+
+.statement-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+// definition
+.definition {
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: #f7e9ff;
+}
+
+
+// Markdown post header anchors
+
+.header-link {
+  // position: absolute;
+  font-size: 1.2rem;
+  margin-left: 0.5em;
+  opacity: 0;
+
+  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+h2:hover .header-link,
+h3:hover .header-link,
+h4:hover .header-link,
+h5:hover .header-link,
+h6:hover .header-link {
+  opacity: 1;
+}
+
+// 형광펜
+
+.half_HL {
+  // background-color: #fdd1a6;
+  background: linear-gradient(to top, #fdd1a6 60%, transparent 50%);
+}
+
+.light-margin {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

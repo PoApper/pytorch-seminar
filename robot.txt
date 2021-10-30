@@ -1,0 +1,4 @@
+ User-agent: *
+ Allow: /
+
+ Sitemap: https://bluehorn07.github.io/computer_science/sitemap.xml

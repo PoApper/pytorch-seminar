@@ -1,0 +1,58 @@
+title: PyTorch 세미나 (2021-Fall)
+author:
+  name: bluehorn07
+  email: bluehornblues@gmail.com
+description: > # this means to ignore newlines until "show_excerpts:"
+  "All stable process we shall predict, All unstable process we shall control." - von Neumann
+
+base_url: /pytorch-seminar
+
+show_excerpts: false # set to true to show excerpts on the homepage
+
+# Minima date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%Y-%m-%d"
+
+  # generate social links in footer
+  social_links:
+    # facebook: jekyll
+    # linkedin: jekyll
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+header_pages:
+  - search.md
+  - about.md
+
+# Build settings
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+
+markdown: kramdown # kramdown is advanced version of markdown
+
+kramdown:
+  auto_ids: true
+
+highlighter: rouge # Jekyll only support 'rouge' syntax highlighter
+
+plugins:
+  - jemoji
+
+tipue_search:
+  include:
+    pages: false
+    collections: []
+  exclude:
+    files: [search.md, index.md, about.md, tags.html]
+    categories: []
+    tags: []
+
+# build option
+# ref: https://yangeok.github.io/blog/2019/05/21/jekyll-caching.html
+# incremental: true
+# limit_posts: 5

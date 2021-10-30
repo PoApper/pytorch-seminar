@@ -1,0 +1,90 @@
+{% comment %}
+  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons:
+
+  1. Head over to https://realfavicongenerator.net/ to add your own favicons.
+  2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
+{% endcomment %}
+
+<!-- favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="{{site.baseurl}}/assets/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{{site.baseurl}}/assets/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{{site.baseurl}}/assets/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{{site.baseurl}}/assets/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{{site.baseurl}}/assets/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{{site.baseurl}}/assets/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{{site.baseurl}}/assets/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{{site.baseurl}}/assets/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/assets/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{site.baseurl}}/assets/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="{{site.baseurl}}/assets/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/assets/favicon/favicon-16x16.png">
+<!-- <link rel="manifest" href="/manifest.json"> -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<!-- font -->
+<link href="/assets/font/d2coding.css" rel="stylesheet" type="text/css">
+
+<!-- code highlighter : monokai.sublime -->
+<link href="/assets/css/syntax.css" rel="stylesheet" type="text/css">
+
+<!-- jquery -->
+<script src="/assets/jquery-3.5.1.min.js"></script>
+
+<!-- Markdown Post header anchor -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<script>
+  $(function() {
+    return $("h2, h3, h4, h5, h6").each(function(i, el) {
+      var $el, icon, id;
+      $el = $(el);
+      id = $el.attr('id');
+      icon = '<i class="fa fa-link"></i>';
+      if (id) {
+        return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+      }
+    });
+  });
+</script>
+
+<!-- tag select -->
+<script>
+  $().ready(function() {
+    $("[data-tag]").click((e) => {
+      currentTag = e.target.dataset.tag;
+      filterByTagName(currentTag);
+    })
+
+    function filterByTagName(tagName) {
+      $('.hidden').removeClass('hidden'); // remove all hidden tag
+      $('.post-wrapper').each((index, elem) => {
+        const tag_children = elem.querySelectorAll('.tag');
+        let hasTag = false;
+        for(let i=0; i < tag_children.length; i++){
+          if(tag_children[i].textContent == tagName) {
+            hasTag = true;
+            break;
+          }
+        }
+        if(!hasTag){
+          $(elem).addClass('hidden');
+        }
+       });
+      $(`.tag`).removeClass('selected');
+      $(`.tag[data-tag="${tagName}"]`).addClass('selected');
+    }
+  })
+</script>
+
+<!-- naver web-master -->
+<meta name="naver-site-verification" content="e15eb928b18319c5dce61949c46f7a16060920e2" />
+
+ <!-- tipuesearch -->
+ <link rel="stylesheet" href="{{"/assets/tipuesearch/css/tipuesearch.css" | relative_url}}">
+ <script src="{{"/assets/tipuesearch/tipuesearch_content.js" | relative_url}}"></script>
+ <script src="{{"/assets/tipuesearch/tipuesearch_set.js" | relative_url}}"></script>
+ <script src="{{"/assets/tipuesearch/tipuesearch.min.js" | relative_url}}"></script>
+ 
