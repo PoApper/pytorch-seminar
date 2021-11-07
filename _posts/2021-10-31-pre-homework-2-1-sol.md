@@ -21,9 +21,11 @@ tags: ["solution"]
 
 > Informally a Convex Function is considered a bow shaped function and hence, this function does not have any local optima. Therefore, it has only one Global Optimum.Thus, when we use Gradient descent to the Linear Regression model, then we will notice that it will always converge to the Global Minimum. Since, there is no local optima for this!
 
-[Hessian을 이용해 Convex를 판단](https://math.stackexchange.com/questions/2774106/why-is-the-least-square-cost-function-for-linear-regression-convex). [$X^TX$ is always positive semin-definite](https://statisticaloddsandends.wordpress.com/2018/01/31/xtx-is-always-positive-semidefinite/)
+설명1) [Convex Cost function and Convex Problem](https://stackoverflow.com/a/41594623/11983825)
 
-단, 어떤 non-linear basis function을 쓴다면 RSS가 convex function이 아니게 될 수 있기 때문에 이 경우에서는 multiple local minimum이 있을 수 있습니다.
+설명2) [Hessian을 이용해 Convex를 판단](https://math.stackexchange.com/questions/2774106/why-is-the-least-square-cost-function-for-linear-regression-convex). [$X^TX$ is always positive semin-definite](https://statisticaloddsandends.wordpress.com/2018/01/31/xtx-is-always-positive-semidefinite/) 
+
+일반적으로 non-linear hidden layer가 있는 NN의 경우 multiple local minima를 갖습니다.
 
 <br/>
 
