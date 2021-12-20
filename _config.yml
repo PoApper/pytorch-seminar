@@ -38,7 +38,7 @@ markdown: kramdown # kramdown is advanced version of markdown
 kramdown:
   auto_ids: true
 
-highlighter: rouge # Jekyll only support 'rouge' syntax highlighter
+# highlighter: rouge # Jekyll only support 'rouge' syntax highlighter
 
 plugins:
   - jemoji
