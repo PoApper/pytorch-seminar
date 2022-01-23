@@ -70,7 +70,7 @@ seq2seq읙 구조는 정말 간단합니다! 2개의 RNN을 붙인 형태로 문
 
 불어를 영어로 번역하는 기계 번역 PyTorch 모델을 seq2seq로 구현해봅시다. PyTroch 공식 튜토리얼의 ["기초부터 시작하는 NLP: SEQUENCE TO SEQUENCE 네트워크와 ATTENTION을 이용한 번역"](https://tutorials.pytorch.kr/intermediate/seq2seq_translation_tutorial.html) 문서를 참고했지만, 세미나에 맞게 모델와 코드를 번형 했음을 미리 밝힙니다.
 
-
+세미나에서 사용한 코드는 세미나 GitHub 레포에서 확인할 수 있습니다. [[link]](https://github.com/PoApper/pytorch-seminar/blob/main/colab_notebooks/seminar9_seq2seq_%26_attention_(final_result).ipynb)
 
 ### 데이터셋
 
