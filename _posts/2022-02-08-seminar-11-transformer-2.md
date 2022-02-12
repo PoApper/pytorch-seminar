@@ -511,11 +511,11 @@ torch.Size([128, 33]) torch.Size([128, 36])
 먼저 큰 틀은 아래와 같다. 아래의 코드에서 조금씩 발전시켜 보겠다.
 
 ```py
-# data load
 def train_epoch(model, optimizer):
   model.train()
   total_loss = 0
   
+  # data load
   train_iter = Multi30k(root='./data', split='train', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
   train_dataloader = DataLoader(train_iter, batch_size=BATCH_SIZE, collate_fn=collate_fn)
 
@@ -576,7 +576,7 @@ def train_epoch(model, optimizer):
     optimizer.zero_grad()
 
     tgt_out = tgt[1:, :]
-    loss = loss_fn(logits.reshape(-1, logits.shape[-1]), tgt_out.reshape(-1))
+    loss = criterion(logits.reshape(-1, logits.shape[-1]), tgt_out.reshape(-1))
     loss.backward()
 
     optimizer.step()
@@ -591,7 +591,6 @@ def train_epoch(model, optimizer):
 최종적인 형태는 아래와 같다.
 
 ```py
-# data load
 def train_epoch(model, optimizer):
   model.train()
   total_loss = 0
@@ -696,6 +695,12 @@ for epoch in range(1, NUM_EPOCHS+1):
 ## 성능 확인
 
 ```py
+# SOS/EOS를 추가하고 입력 순서(sequence) 인덱스에 대한 텐서를 생성하는 함수
+def tensor_transform(token_ids: List[int]):
+  return torch.cat((torch.tensor([SOS_TKN_IDX]),
+                    torch.tensor(token_ids),
+                    torch.tensor([EOS_TKN_IDX])))
+
 # 순차적인 작업들을 하나로 묶는 헬퍼 함수
 def sequential_transforms(*transforms):
   def callback(txt_input):
@@ -704,19 +709,12 @@ def sequential_transforms(*transforms):
     return txt_input
   return callback
 
-
-# BOS/EOS를 추가하고 입력 순서(sequence) 인덱스에 대한 텐서를 생성하는 함수
-def tensor_transform(token_ids: List[int]):
-  return torch.cat((torch.tensor([SOS_TKN_IDX]),
-                    torch.tensor(token_ids),
-                    torch.tensor([EOS_TKN_IDX])))
-
 # 출발어(src)와 도착어(tgt) 원시 문자열들을 텐서 인덱스로 변환하는 변형(transform)
 text_transform = {}
 for ln in [SRC_LANGUAGE, TGT_LANGUAGE]:
   text_transform[ln] = sequential_transforms(token_transform[ln], # 토큰화(Tokenization)
                                                vocab_transform[ln], # 수치화(Numericalization)
-                                               tensor_transform) # BOS/EOS를 추가하고 텐서를 생성
+                                               tensor_transform) # SOS/EOS를 추가하고 텐서를 생성
 ```
 
 앞에서 우리는 `token_transform`과 `vocab_transform` 등의 변환을 만들었습니다. 이것을 하나의 transform으로 묶어주기 위해 `text_transform`이라는 변환을 정의하겠습니다.
@@ -775,7 +773,6 @@ A group of people stand in front of an igloo .
 <br/>
 
 ```py
-import random
 val_iter = Multi30k(root='./data', split='valid', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
 
 for idx, sample in enumerate(val_iter):
@@ -784,15 +781,15 @@ for idx, sample in enumerate(val_iter):
   gt_sentence = sample[1]
   output_sentence = translate(transformer, src_sentence)
 
-  print(f'dutch: {src_sentence}')
-  print(f'english(gt): {gt_sentence}')
+  print(f'dutch:         {src_sentence}')
+  print(f'english(gt):   {gt_sentence}')
   print(f'english(pred): {output_sentence}')
   print('-' * 50)
 ```
 
 ```text
-dutch: Eine Gruppe von Männern lädt Baumwolle auf einen Lastwagen
-english(gt): A group of men are loading cotton onto a truck
+dutch:          Eine Gruppe von Männern lädt Baumwolle auf einen Lastwagen
+english(gt):    A group of men are loading cotton onto a truck
 english(pred):  A group of men are loading into a truck of traffic . 
 --------------------------------------------------
 dutch:          Ein Mann schläft in einem grünen Raum auf einem Sofa.
