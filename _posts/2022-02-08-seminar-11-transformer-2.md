@@ -817,7 +817,7 @@ english(pred):  A balding man is wearing a red life vest wearing a small life ja
 
 ## 맺음말
 
-이것으로 `nn.Transformer()` 모듈을 사용해 Trasnformer 번역 모델을 구현해보았습니다. Transformer는 이후에 BERT<small>(Bidirectional Encoder Representations from Transformers)</small>, GPT-3<small>(Generative Pre-Trained Transformer 3)</small>와 같이 최신 NLP 모델의 베이스가 되기 때문에 Transformer를 잘 이해하는 것이 중요합니다.
+이것으로 `nn.Transformer()` 모듈을 사용해 Trasnformer 번역 모델을 구현해보았습니다. 전체 코드는 PyTorch 세미나의 깃헙 레포에서 확인하실 수 있습니다. [[link]](https://github.com/PoApper/pytorch-seminar/blob/main/colab_notebooks/seminar11_Transformer_(final).ipynb) Transformer는 이후에 BERT<small>(Bidirectional Encoder Representations from Transformers)</small>, GPT-3<small>(Generative Pre-Trained Transformer 3)</small>와 같이 최신 NLP 모델의 베이스가 되기 때문에 Transformer를 잘 이해하는 것이 중요합니다.
 
 Transformer를 끝으로 PyTorch 세미나를 마무리 하겠습니다. 모두 수고하셨습니다!
 
